@@ -1,0 +1,65 @@
+\documentclass[a4paper,11pt,notumble]{leaflet}
+\usepackage[utf8]{inputenc}
+\usepackage[ngerman]{babel}
+%\usepackage{setspace}
+\usepackage{hyperref}
+
+
+\usepackage{graphicx}
+\graphicspath{{gfx/}}
+
+\newcommand{\Key}[2]{{\bf {\tt #1}}\quad {#2}\\[2mm]}
+\newcommand{\Keylong}[3]{{\bf {\tt #1}}\quad {#2} \quad  {\it #3} \\[2mm]}
+\newcommand{\Icon}[1]{\includegraphics[width=7mm]{#1}}
+
+
+\begin{document} 
+\hypersetup{
+  pdftitle={AFS Kurzreferenz},  
+  pdfsubject={Kurzreferenz mit Tipps zum Andrew File System},
+  pdfauthor={Jonas Stein, et al.}
+  pdfnewwindow=true
+}
+
+{\Huge AFS Kurzreferenz}\\
+{\small PDF erstellt am \today}
+
+
+
+\section*{Dateirechte ACL}
+Die Rechte werden per ACL (= Access Control List) für ein Verzeichnis gesetzt und gelten für alle Dateien im Ordner.
+
+\Keylong{r}{read} {Datei darf gelesen werden}
+\Keylong{w}{write}{Datei darf verändert werden}
+\Keylong{l}{lookup}{Datei darf gelistet werden}        
+\Keylong{i}{insert}{weitere Dateien dürfen hinzugefügt werden}        
+\Keylong{d}{delete}{Dateien dürfen gelöscht werden}
+\Keylong{k}{lock}{Dateien dürfen gesperrt  werden}
+\Keylong{a}{administer}{ACL des Verzeichnisses dürfen geändert werden}
+
+
+
+
+
+%\Icon{pastetags.png} \Key{Strg + Shift + v}{Tags des kopierten Objekts auf anderes Objekt übertragen}
+%e\\[-48pt]
+
+\section*{Rechte abfragen}
+\Keylong{fs listacl}{zeigt die ACL vom aktuellen Verzeichnis. Pfad kann auch angegeben werden}{fs listacl -path /afs/project}
+
+
+\section*{Rechte setzen}
+\Keylong{fs setacl -clear}{löscht die ACL vom aktuellen Verzeichnis}{}
+\Keylong{fs setacl}{setzt die ACL vom aktuellen Verzeichnis. Pfad kann auch angegeben werden}{fs setacl -path /afs/project}
+
+
+\newpage
+
+
+% \textbf{Dank für das Mitwirken an:} 
+\end{document}
+
+%%% Local Variables: 
+%%% mode: latex
+%%% TeX-master: t
+%%% End: 
